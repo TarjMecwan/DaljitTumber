@@ -217,40 +217,41 @@
     tourVideo.addEventListener("pause", function () { playBtn.classList.remove("hidden"); });
   }
 
-  /* ---------- testimonials slider ---------- */
-  var slides = Array.prototype.slice.call(document.querySelectorAll(".tst-slide"));
-  if (slides.length) {
-    var dotsWrap = document.querySelector(".tst-dots");
-    var current = 0, timer = null;
+  /* ---------- Google reviews carousel ---------- */
+  var gSlides = Array.prototype.slice.call(document.querySelectorAll(".greview-slide"));
+  if (gSlides.length) {
+    var gTrack = document.querySelector(".greview-track");
+    var gDotsWrap = document.querySelector(".greview-dots");
+    var gCurrent = 0, gTimer = null;
 
-    slides.forEach(function (_, i) {
+    gSlides.forEach(function (_, i) {
       var b = document.createElement("button");
-      b.setAttribute("aria-label", "Testimonial " + (i + 1));
-      b.addEventListener("click", function () { go(i, true); });
-      dotsWrap.appendChild(b);
+      b.setAttribute("aria-label", "Review " + (i + 1));
+      b.addEventListener("click", function () { gGo(i, true); });
+      gDotsWrap.appendChild(b);
     });
-    var dots = Array.prototype.slice.call(dotsWrap.children);
+    var gDots = Array.prototype.slice.call(gDotsWrap.children);
 
-    function go(i, user) {
-      current = (i + slides.length) % slides.length;
-      slides.forEach(function (s, n) { s.classList.toggle("active", n === current); });
-      dots.forEach(function (d, n) { d.classList.toggle("active", n === current); });
-      if (user) restart();
+    function gGo(i, user) {
+      gCurrent = (i + gSlides.length) % gSlides.length;
+      gTrack.style.transform = "translateX(-" + gCurrent * 100 + "%)";
+      gDots.forEach(function (d, n) { d.classList.toggle("active", n === gCurrent); });
+      if (user) gRestart();
     }
-    function next() { go(current + 1); }
-    function prev() { go(current - 1); }
-    function restart() {
-      clearInterval(timer);
-      timer = setInterval(next, 6500);
+    function gNext() { gGo(gCurrent + 1); }
+    function gPrev() { gGo(gCurrent - 1); }
+    function gRestart() {
+      clearInterval(gTimer);
+      gTimer = setInterval(gNext, 6500);
     }
 
-    var nextBtn = document.querySelector(".tst-next");
-    var prevBtn = document.querySelector(".tst-prev");
-    if (nextBtn) nextBtn.addEventListener("click", function () { next(); restart(); });
-    if (prevBtn) prevBtn.addEventListener("click", function () { prev(); restart(); });
+    var gNextBtn = document.querySelector(".greview-next");
+    var gPrevBtn = document.querySelector(".greview-prev");
+    if (gNextBtn) gNextBtn.addEventListener("click", function () { gNext(); gRestart(); });
+    if (gPrevBtn) gPrevBtn.addEventListener("click", function () { gPrev(); gRestart(); });
 
-    go(0);
-    restart();
+    gGo(0);
+    gRestart();
   }
 
   /* ---------- nav active state (scroll-spy) ---------- */

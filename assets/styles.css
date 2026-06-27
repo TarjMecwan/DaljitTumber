@@ -334,26 +334,39 @@ p{ margin:0 0 1em; text-wrap:pretty; }
 .comm-link svg{ width:13px; height:13px; }
 
 /* =========================================================
-   TESTIMONIALS
+   TESTIMONIALS — Google reviews
    ========================================================= */
-.tst{ position:relative; max-width:900px; margin-inline:auto; text-align:center; }
-.tst-track{ position:relative; min-height:1px; }
-.tst-slide{ position:absolute; inset:0; opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); pointer-events:none; }
-.tst-slide.active{ position:relative; opacity:1; transform:none; pointer-events:auto; }
-.tst-quote{ font-family:var(--serif); font-size:clamp(1.5rem,3vw,2.35rem); line-height:1.32; color:var(--ink); font-weight:500; font-style:italic; }
-.tst-stars{ display:flex; justify-content:center; gap:6px; margin-bottom:26px; }
-.tst-stars svg{ width:20px; height:20px; fill:var(--gold); }
-.tst-meta{ margin-top:30px; }
-.tst-meta .who{ font-weight:800; letter-spacing:.04em; color:var(--ink); }
-.tst-meta .role{ font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:5px; }
-.tst-nav{ display:flex; align-items:center; justify-content:center; gap:22px; margin-top:40px; }
-.tst-arrow{ width:48px; height:48px; border-radius:50%; border:1px solid var(--line); background:var(--paper); display:flex; align-items:center; justify-content:center; transition:.25s var(--ease); }
-.tst-arrow svg{ width:18px; height:18px; stroke:var(--ink); fill:none; stroke-width:1.8; }
-.tst-arrow:hover{ background:var(--ink); border-color:var(--ink); }
-.tst-arrow:hover svg{ stroke:#fff; }
-.tst-dots{ display:flex; gap:9px; }
-.tst-dots button{ width:8px; height:8px; border-radius:50%; border:0; background:var(--line); padding:0; transition:.3s var(--ease); }
-.tst-dots button.active{ background:var(--gold); width:26px; border-radius:5px; }
+.greview-summary{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:16px; margin-bottom:clamp(36px,5vw,52px); text-align:center; }
+.greview-summary .g-logo{ width:30px; height:30px; }
+.greview-score{ display:flex; align-items:center; gap:9px; }
+.greview-score .num{ font-family:var(--serif); font-size:1.6rem; font-weight:700; color:var(--ink); }
+.g-stars{ display:inline-flex; gap:2px; }
+.g-stars svg{ width:16px; height:16px; fill:#fbbc04; }
+.greview-count{ font-size:.85rem; color:var(--muted); }
+
+.greview-carousel{ position:relative; max-width:700px; margin-inline:auto; }
+.greview-viewport{ overflow:hidden; }
+.greview-track{ display:flex; transition:transform .5s var(--ease); }
+.greview-slide{ flex:0 0 100%; min-width:0; padding:4px; }
+.greview-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); padding:clamp(26px,3vw,34px); box-shadow:var(--shadow-sm); min-height:268px; }
+.greview-nav{ display:flex; align-items:center; justify-content:center; gap:22px; margin-top:32px; }
+.greview-arrow{ width:46px; height:46px; border-radius:50%; border:1px solid var(--line); background:var(--cream); display:flex; align-items:center; justify-content:center; transition:.25s var(--ease); }
+.greview-arrow svg{ width:18px; height:18px; stroke:var(--ink); fill:none; stroke-width:1.8; }
+.greview-arrow:hover{ background:var(--ink); border-color:var(--ink); }
+.greview-arrow:hover svg{ stroke:#fff; }
+.greview-dots{ display:flex; gap:9px; }
+.greview-dots button{ width:8px; height:8px; border-radius:50%; border:0; background:var(--line); padding:0; transition:.3s var(--ease); }
+.greview-dots button.active{ background:var(--gold); width:26px; border-radius:5px; }
+.greview-head{ display:flex; align-items:flex-start; gap:14px; }
+.g-avatar{ flex:none; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--sans); font-weight:700; font-size:1.05rem; }
+.g-who{ flex:1; min-width:0; }
+.g-name{ font-weight:700; color:var(--ink); font-size:.95rem; }
+.g-sub{ font-size:.76rem; color:var(--muted); margin-top:3px; }
+.g-mark{ flex:none; width:18px; height:18px; margin-top:2px; }
+.greview-row{ display:flex; align-items:center; gap:10px; margin:14px 0 14px; }
+.greview-row .g-stars svg{ width:14px; height:14px; }
+.g-time{ font-size:.76rem; color:var(--muted); }
+.g-text{ font-size:.9rem; color:var(--ink); line-height:1.65; }
 
 /* =========================================================
    CONTACT
